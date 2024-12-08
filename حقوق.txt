@@ -1,0 +1,31 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) 
+    {
+      Scanner myScaneerObject = new Scanner(System.in);
+      for (int i = 1; i <= 10; i++) 
+      {
+        String name = myScaneerObject.nextLine();
+        double salary = Double.parseDouble(myScaneerObject.nextLine());
+        if (salary >= 20000) {
+            salary -= (salary * 0.1825);
+            System.out.println("\n"+name+" your salary is : "+salary+" bad az kasri bime (18%)");
+        } 
+        else if(salary >= 10000){
+          salary -= (salary * 0.175);
+            System.out.println("\n"+name+" your salary is : "+salary+" bad az kasri bime (17%)");
+
+        }
+        else if (salary >= 7500){
+          salary += (salary * 0.175);
+            System.out.println("\n"+name+" your salary is : "+salary+" bad az afzayesh hoghogh (17%)");
+
+        }
+        salary += (salary * 0.035);
+          System.out.println("\n"+name+" your salary is : "+salary+" bad az hagh oulad (3.5%)");
+          System.out.println("\n---------------------------------");
+      }
+      myScaneerObject.close();
+  }
+}
