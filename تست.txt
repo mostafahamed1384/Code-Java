@@ -1,0 +1,60 @@
+import java.util.Scanner;
+
+public class PsychologicalTest {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+
+        System.out.print("نام و نام خانوادگی خود را وارد کنید: ");
+        String fullName = scanner.nextLine();
+
+        System.out.print("نام دکتر را وارد کنید: ");
+        String doctorName = scanner.nextLine();
+
+        System.out.print("تاریخ تست را وارد کنید:");
+        String testDate = scanner.nextLine();
+
+
+        System.out.println("\n اطلاعات کاربر ");
+        System.out.println("نام و نام خانوادگی: " + fullName);
+        System.out.println("نام دکتر: " + doctorName);
+        System.out.println("تاریخ تست: " + testDate);
+
+      
+        int score = 0;
+        
+        score += askQuestion(scanner, "آیا ااعتماد به نفس دارید؟(بله/خیر): ");
+        score += askQuestion(scanner, "آیا مطالعه دارید؟ (بله/خیر): ");
+        score += askQuestion(scanner, "آیا به آینده امیدوار هستید؟ (بله/خیر): ");
+        score += askQuestion(scanner, "آیا در برخورد با دیگران آرام هستید؟ (بله/خیر): ");
+        score += askQuestion(scanner, "آیا احساس خوشبختی می‌کنید؟ (بله/خیر): ");
+
+
+        System.out.println("\n نتیجه نهایی ");
+        
+        if (score < 30) {
+            System.out.println("نیاز به بستری دارید.");
+        } else if (score >= 30 && score <= 50) {
+            System.out.println("لطفاً به دکتر مراجعه کنید.");
+        } else if (score > 50 && score <= 70) {
+            System.out.println("لطفاً به روانشناس مراجعه کنید.");
+        } else {
+            System.out.println("حالت نرمال.");
+        }
+
+    }
+
+    private static int askQuestion(Scanner scanner, String question) {
+       while(true){
+           System.out.print(question);
+           String answer = scanner.nextLine().trim().toLowerCase();
+           if(answer.equals("بله")) {
+               return 20;
+           } else if(answer.equals("خیر")) {
+               return 0;
+           } else {
+               System.out.println("لطفاً فقط 'بله' یا 'خیر' وارد کنید.");
+           }
+       }
+    }
+}
